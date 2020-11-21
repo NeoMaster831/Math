@@ -9,24 +9,24 @@ using namespace std;
 int main() {
 	setcolor(14, 0); int n; // dummydata
 
-	int x2_value; int x2_yang = -1; // x^2, x^2ÀÇ ¾ç¼ö
+	int x2_value; int x2_yang = -1; // x^2, x^2ì˜ ì–‘ìˆ˜
 	int xy_value; // xy
-	int y2_value; int y2_yang = -1; // y^2, y^2ÀÇ ¾ç¼ö
-	cout << "> x^2ÀÇ °è¼ö¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä." << endl;
+	int y2_value; int y2_yang = -1; // y^2, y^2ì˜ ì–‘ìˆ˜
+	cout << "> x^2ì˜ ê³„ìˆ˜ë¥¼ ì…ë ¥í•´ì£¼ì„¸ìš”." << endl;
 	cout << "> ";
 	cin >> x2_value;
 
-	cout << "> xyÀÇ °è¼ö¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä." << endl;
+	cout << "> xyì˜ ê³„ìˆ˜ë¥¼ ì…ë ¥í•´ì£¼ì„¸ìš”." << endl;
 	cout << "> ";
 	cin >> xy_value;
 
-	cout << "> y^2ÀÇ °è¼ö¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä." << endl;
+	cout << "> y^2ì˜ ê³„ìˆ˜ë¥¼ ì…ë ¥í•´ì£¼ì„¸ìš”." << endl;
 	cout << "> ";
 	cin >> y2_value;
 
-	// ¿À·ù °ËÁõ
+	// ì˜¤ë¥˜ ê²€ì¦
 	if (x2_value == 0 || xy_value == 0 || y2_value == 0) {
-		cout << "Àß¸øµÈ °ªÀ» ÀÔ·ÂÇß½À´Ï´Ù. ´Ù½Ã ½ÃµµÇÏ¼¼¿ä." << endl;
+		cout << "ì˜ëª»ëœ ê°’ì„ ì…ë ¥í–ˆìŠµë‹ˆë‹¤. ë‹¤ì‹œ ì‹œë„í•˜ì„¸ìš”." << endl;
 		return -1;
 	}
 
@@ -40,7 +40,7 @@ int main() {
 	}
 	else y2_yang = y2_value;
 
-	if (x2_value > 0 && y2_value > 0) { // 1. x^2 = ¾ç and y^2 = ¾ç
+	if (x2_value > 0 && y2_value > 0) { // 1. x^2 = ì–‘ and y^2 = ì–‘
 		for (n = 1; n <= x2_value; n++) {
 
 			if (!is_yaksu(n, x2_value)) {
@@ -63,7 +63,7 @@ int main() {
 			}
 		}
 
-		// ¸¸¾à ½ÇÆĞÇßÀ¸¸é: y^2¸¦ ¸ğµÎ -·Î ¹Ù²Ù±â
+		// ë§Œì•½ ì‹¤íŒ¨í–ˆìœ¼ë©´: y^2ë¥¼ ëª¨ë‘ -ë¡œ ë°”ê¾¸ê¸°
 		for (n = 1; n <= x2_value; n++) {
 
 			if (!is_yaksu(n, x2_value)) {
@@ -80,8 +80,8 @@ int main() {
 				int y2_sec_value = y2_value / m;
 
 				int k1, k2;
-				k1 = m - (m * 2); // À½¼ö m
-				k2 = y2_sec_value - (y2_sec_value * 2); // À½¼ö y2secvalue
+				k1 = m - (m * 2); // ìŒìˆ˜ m
+				k2 = y2_sec_value - (y2_sec_value * 2); // ìŒìˆ˜ y2secvalue
 
 				if ((n * k2) + (x2_sec_value * k1) == xy_value) {
 					cout << "> (" << n << "x + " << k1 << "y)(" << x2_sec_value << "x + " << k2 << "y)" << endl;
@@ -90,16 +90,16 @@ int main() {
 			}
 		}
 
-		// ½ÇÆĞÇßÀ¸¸é: ½ÇÆĞ Ãâ·Â ÈÄ Á¾·á
-		cout << "ÀÎ¼öºĞÇØ¿¡ ½ÇÆĞÇß½À´Ï´Ù: ÀÚ¿¬¼ö·Î ³ª´©¾î¶³¾îÁöÁö ¾Ê½À´Ï´Ù." << endl;
+		// ì‹¤íŒ¨í–ˆìœ¼ë©´: ì‹¤íŒ¨ ì¶œë ¥ í›„ ì¢…ë£Œ
+		cout << "ì¸ìˆ˜ë¶„í•´ì— ì‹¤íŒ¨í–ˆìŠµë‹ˆë‹¤: ìì—°ìˆ˜ë¡œ ë‚˜ëˆ„ì–´ë–¨ì–´ì§€ì§€ ì•ŠìŠµë‹ˆë‹¤." << endl;
 		return 0;
 	}
 
-	else if (x2_value < 0 && y2_value > 0) { // 2. x^2 = À½, y^2 = ¾ç
+	else if (x2_value < 0 && y2_value > 0) { // 2. x^2 = ìŒ, y^2 = ì–‘
 
 		/*
-		¾Ë°í¸®Áò: x2_sec = À½, x2_fir = ¾ç <-- ¹æ¹ı A
-		¾ÈµÇ¸é?: x2_sec = ¾ç, x2_fir = À½ <-- ¹æ¹ı B
+		ì•Œê³ ë¦¬ì¦˜: x2_sec = ìŒ, x2_fir = ì–‘ <-- ë°©ë²• A
+		ì•ˆë˜ë©´?: x2_sec = ì–‘, x2_fir = ìŒ <-- ë°©ë²• B
 		*/
 
 		for (n = 1; n <= x2_yang; n++) {
@@ -108,7 +108,7 @@ int main() {
 				continue;
 			}
 
-			int x2_sec_value = x2_yang / n; // B ¹æ¹ı
+			int x2_sec_value = x2_yang / n; // B ë°©ë²•
 			int x2_fir_value = n - (n * 2);
 
 			for (int m = 1; m <= y2_value; m++) {
@@ -130,7 +130,7 @@ int main() {
 				continue;
 			}
 
-			int x2_fir_value = x2_yang / n; // A ¹æ¹ı
+			int x2_fir_value = x2_yang / n; // A ë°©ë²•
 			int x2_sec_value = n - (n * 2);
 
 			for (int m = 1; m <= y2_value; m++) {
@@ -147,15 +147,15 @@ int main() {
 			}
 		}
 
-		cout << "ÀÎ¼öºĞÇØ¿¡ ½ÇÆĞÇß½À´Ï´Ù: ÀÚ¿¬¼ö·Î ³ª´©¾î¶³¾îÁöÁö ¾Ê½À´Ï´Ù." << endl;
+		cout << "ì¸ìˆ˜ë¶„í•´ì— ì‹¤íŒ¨í–ˆìŠµë‹ˆë‹¤: ìì—°ìˆ˜ë¡œ ë‚˜ëˆ„ì–´ë–¨ì–´ì§€ì§€ ì•ŠìŠµë‹ˆë‹¤." << endl;
 		return 0;
 	}
 
-	else if (x2_value > 0 && y2_value < 0) { // 3. x^2 = ¾ç, y^2 = À½
+	else if (x2_value > 0 && y2_value < 0) { // 3. x^2 = ì–‘, y^2 = ìŒ
 
-		// ¾Ë°í¸®Áò:
-		// A ¹æ¹ı: y2_fir = ¾ç, y2_sec = À½
-		// B ¹æ¹ı: y2_fir = À½, y2_sec = ¾ç
+		// ì•Œê³ ë¦¬ì¦˜:
+		// A ë°©ë²•: y2_fir = ì–‘, y2_sec = ìŒ
+		// B ë°©ë²•: y2_fir = ìŒ, y2_sec = ì–‘
 
 		for (n = 1; n <= x2_value; n++) {
 			
@@ -170,12 +170,12 @@ int main() {
 					continue;
 				}
 
-				/* v ÀÌ°ÍÀº ¿À·ù°¡ »ı°Ü¼­ Ã³¸®ÇÑ ÁÖ¼®ÀÔ´Ï´Ù v */
-				// ¸¸¾à: x^2 - xy - 2y^2
+				/* v ì´ê²ƒì€ ì˜¤ë¥˜ê°€ ìƒê²¨ì„œ ì²˜ë¦¬í•œ ì£¼ì„ì…ë‹ˆë‹¤ v */
+				// ë§Œì•½: x^2 - xy - 2y^2
 				// (x - 2y)(x + y)
 				//
 
-				int y2_fir_value = y2_yang / n;
+				int y2_fir_value = y2_yang / m;
 				int y2_sec_value = m - (m * 2);
 
 				if ((n * y2_sec_value) + (x2_sec_value * y2_fir_value) == xy_value) {
@@ -198,7 +198,7 @@ int main() {
 					continue;
 				}
 
-				int y2_sec_value = y2_yang / n;
+				int y2_sec_value = y2_yang / m;
 				int y2_fir_value = m - (m * 2);
 
 				if ((n * y2_sec_value) + (x2_sec_value * y2_fir_value) == xy_value) {
@@ -208,43 +208,19 @@ int main() {
 			}
 		}
 
-		cout << "ÀÎ¼öºĞÇØ¿¡ ½ÇÆĞÇß½À´Ï´Ù: ÀÚ¿¬¼ö·Î ³ª´©¾î¶³¾îÁöÁö ¾Ê½À´Ï´Ù." << endl;
+		cout << "ì¸ìˆ˜ë¶„í•´ì— ì‹¤íŒ¨í–ˆìŠµë‹ˆë‹¤: ìì—°ìˆ˜ë¡œ ë‚˜ëˆ„ì–´ë–¨ì–´ì§€ì§€ ì•ŠìŠµë‹ˆë‹¤." << endl;
 		return 0;
 	}
 
 	else if (x2_value < 0 && y2_value < 0) {
 		
-		// ¾Ë°í¸®Áò:
-		// A: x2f = ¾ç, x2s = À½, y2f = ¾ç, y2s = À½
-		// B: x2f = ¾ç, x2s = À½, y2f = À½, y2s = ¾ç
-		// C: x2f = À½, x2s = ¾ç, y2f = ¾ç, y2s = À½
-		// D: x2f = À½, x2s = ¾ç, y2f = À½, y2s = ¾ç
+		// ì•Œê³ ë¦¬ì¦˜:
+		// A: x2f = ì–‘, x2s = ìŒ, y2f = ì–‘, y2s = ìŒ
+		// B: x2f = ì–‘, x2s = ìŒ, y2f = ìŒ, y2s = ì–‘
+		// C: x2f = ìŒ, x2s = ì–‘, y2f = ì–‘, y2s = ìŒ
+		// D: x2f = ìŒ, x2s = ì–‘, y2f = ìŒ, y2s = ì–‘
 
-		for (n = 1; n <= x2_yang; n++) { // A ¹æ¹ı
-
-			if (!is_yaksu(n, x2_yang)) {
-				continue;
-			}
-
-			int x2_fir_value = x2_yang / n;
-			int x2_sec_value = n - (n * 2);
-
-			for (int m = 1; m <= y2_yang; m++) {
-				if (!is_yaksu(m, y2_yang)) {
-					continue;
-				}
-
-				int y2_fir_value = y2_yang / n;
-				int y2_sec_value = m - (m * 2);
-
-				if ((x2_fir_value * y2_sec_value) + (x2_sec_value * y2_fir_value) == xy_value) {
-					cout << "> (" << x2_fir_value << "x + " << y2_fir_value + "y)(" << x2_sec_value << "x + " << y2_sec_value << "y)" << endl;
-					return 1;
-				}
-			}
-		}
-
-		for (n = 1; n <= x2_yang; n++) { // B ¹æ¹ı
+		for (n = 1; n <= x2_yang; n++) { // A ë°©ë²•
 
 			if (!is_yaksu(n, x2_yang)) {
 				continue;
@@ -258,31 +234,7 @@ int main() {
 					continue;
 				}
 
-				int y2_sec_value = y2_yang / n;
-				int y2_fir_value = m - (m * 2);
-
-				if ((x2_fir_value * y2_sec_value) + (x2_sec_value * y2_fir_value) == xy_value) {
-					cout << "> (" << x2_fir_value << "x + " << y2_fir_value + "y)(" << x2_sec_value << "x + " << y2_sec_value << "y)" << endl;
-					return 1;
-				}
-			}
-		}
-
-		for (n = 1; n <= x2_yang; n++) { // C ¹æ¹ı
-
-			if (!is_yaksu(n, x2_yang)) {
-				continue;
-			}
-
-			int x2_sec_value = x2_yang / n;
-			int x2_fir_value = n - (n * 2);
-
-			for (int m = 1; m <= y2_yang; m++) {
-				if (!is_yaksu(m, y2_yang)) {
-					continue;
-				}
-
-				int y2_fir_value = y2_yang / n;
+				int y2_fir_value = y2_yang / m;
 				int y2_sec_value = m - (m * 2);
 
 				if ((x2_fir_value * y2_sec_value) + (x2_sec_value * y2_fir_value) == xy_value) {
@@ -292,7 +244,31 @@ int main() {
 			}
 		}
 
-		for (n = 1; n <= x2_yang; n++) { // D ¹æ¹ı
+		for (n = 1; n <= x2_yang; n++) { // B ë°©ë²•
+
+			if (!is_yaksu(n, x2_yang)) {
+				continue;
+			}
+
+			int x2_fir_value = x2_yang / n;
+			int x2_sec_value = n - (n * 2);
+
+			for (int m = 1; m <= y2_yang; m++) {
+				if (!is_yaksu(m, y2_yang)) {
+					continue;
+				}
+
+				int y2_sec_value = y2_yang / m;
+				int y2_fir_value = m - (m * 2);
+
+				if ((x2_fir_value * y2_sec_value) + (x2_sec_value * y2_fir_value) == xy_value) {
+					cout << "> (" << x2_fir_value << "x + " << y2_fir_value + "y)(" << x2_sec_value << "x + " << y2_sec_value << "y)" << endl;
+					return 1;
+				}
+			}
+		}
+
+		for (n = 1; n <= x2_yang; n++) { // C ë°©ë²•
 
 			if (!is_yaksu(n, x2_yang)) {
 				continue;
@@ -306,7 +282,31 @@ int main() {
 					continue;
 				}
 
-				int y2_sec_value = y2_yang / n;
+				int y2_fir_value = y2_yang / m;
+				int y2_sec_value = m - (m * 2);
+
+				if ((x2_fir_value * y2_sec_value) + (x2_sec_value * y2_fir_value) == xy_value) {
+					cout << "> (" << x2_fir_value << "x + " << y2_fir_value + "y)(" << x2_sec_value << "x + " << y2_sec_value << "y)" << endl;
+					return 1;
+				}
+			}
+		}
+
+		for (n = 1; n <= x2_yang; n++) { // D ë°©ë²•
+
+			if (!is_yaksu(n, x2_yang)) {
+				continue;
+			}
+
+			int x2_sec_value = x2_yang / n;
+			int x2_fir_value = n - (n * 2);
+
+			for (int m = 1; m <= y2_yang; m++) {
+				if (!is_yaksu(m, y2_yang)) {
+					continue;
+				}
+
+				int y2_sec_value = y2_yang / m;
 				int y2_fir_value = m - (m * 2);
 
 				if ((x2_fir_value * y2_sec_value) + (x2_sec_value * y2_fir_value) == xy_value) {
@@ -316,12 +316,12 @@ int main() {
 			}
 		}
 
-		cout << "ÀÎ¼öºĞÇØ¿¡ ½ÇÆĞÇß½À´Ï´Ù: ÀÚ¿¬¼ö·Î ³ª´©¾î¶³¾îÁöÁö ¾Ê½À´Ï´Ù." << endl;
+		cout << "ì¸ìˆ˜ë¶„í•´ì— ì‹¤íŒ¨í–ˆìŠµë‹ˆë‹¤: ìì—°ìˆ˜ë¡œ ë‚˜ëˆ„ì–´ë–¨ì–´ì§€ì§€ ì•ŠìŠµë‹ˆë‹¤." << endl;
 		return 0;
 	}
 
 	else {
-		cout << "ÀÎ¼öºĞÇØ¿¡ ½ÇÆĞÇß½À´Ï´Ù: ¾Ë ¼ö ¾ø´Â ¿À·ù°¡ ³µ½À´Ï´Ù." << endl;
+		cout << "ì¸ìˆ˜ë¶„í•´ì— ì‹¤íŒ¨í–ˆìŠµë‹ˆë‹¤: ì•Œ ìˆ˜ ì—†ëŠ” ì˜¤ë¥˜ê°€ ë‚¬ìŠµë‹ˆë‹¤." << endl;
 		return 0;
 	}
 }
